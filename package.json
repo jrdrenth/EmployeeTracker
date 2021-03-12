@@ -1,0 +1,28 @@
+{
+  "name": "employeetracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "asciiart-logo": "^0.2.6",
+    "console.table": "^0.10.0",
+    "dotenv": "^8.2.0",
+    "mysql": "^2.18.1",
+    "util": "^0.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrdrenth/EmployeeTracker.git"
+  },
+  "author": "John R. Drenth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jrdrenth/EmployeeTracker/issues"
+  },
+  "homepage": "https://github.com/jrdrenth/EmployeeTracker#readme"
+}
