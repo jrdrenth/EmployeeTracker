@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const util = require("util");
+const util = require('util');
 require('dotenv').config();  // Enable access to .env variables
 
 const connection = mysql.createConnection({
@@ -11,10 +11,7 @@ const connection = mysql.createConnection({
 
 });
 
-connection.connect((err) => {
-  if (err) throw err;
-  console.log(`connected to ${process.env.DB_NAME} DB on localhost:3306 with threadId ${connection.threadId}`);
-});
+connection.connect((err) => { if (err) throw err; });
 
 // Converts connection.query() to return responses in a promise instead of a callback, allowing for async/await syntax
 connection.query = util.promisify(connection.query);

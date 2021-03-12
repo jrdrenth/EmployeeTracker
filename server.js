@@ -7,10 +7,10 @@ const companyDB = require('./db/company');
 async function init() {
   console.log(asciiart({ name: 'Employee Manager', textColor: 'green' }).render());
   
-  const departments = await companyDB.getAllDepartments();
+  const resultSet = await companyDB.getAllEmployees();
   
   console.log('\n');
-  console.table(departments);
+  console.table(resultSet);
 
   companyDB.dispose();
 }
