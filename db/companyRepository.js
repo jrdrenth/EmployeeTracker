@@ -1,8 +1,8 @@
 const connection = require('../config/connection');
 
-class CompanyDB {
+class CompanyRepository {
 
-  constructor(connection) {
+  constructor() {
     this.connection = connection;
   }
 
@@ -177,4 +177,4 @@ class CompanyDB {
   }
 }
 
-module.exports = new CompanyDB(connection);
+module.exports = CompanyRepository;
