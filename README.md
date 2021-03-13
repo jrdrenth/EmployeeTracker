@@ -33,7 +33,7 @@ npm i
 
 Run the command: `npm start`.  Navigate thru the menu to manage the company.
 
-![Employee Tracker](Assets/employee-tracker.gif)
+![Employee Tracker](./assets/employee-tracker.gif)
 
 
 ## License:
