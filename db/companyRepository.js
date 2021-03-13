@@ -140,6 +140,21 @@ class CompanyRepository {
     return resultSet;
   }
 
+  // Get all roles except the one of the passed in employee
+  getAllOtherRoles(employeeId) {
+    const queryText = 
+      `select role.id,
+        role.title,
+        dept.name as department
+      from role role
+      inner join department dept on role.department_id = dept.id
+      where role.id <> (select role_id from employee where id = ?)
+      order by role.id`;
+
+    const resultSet = this.connection.query(queryText, employeeId);
+    return resultSet;
+  }
+
   deleteRole(roleId) {
     const commandText = 'delete from role where id = ?';
     const result = this.connection.query(commandText, roleId);
@@ -154,10 +169,14 @@ class CompanyRepository {
 
   getAllDepartments() {
     const queryText = 
-      `select dept.*, sum(role.salary) as utilized_budget
+      `select dept.*, coalesce(sum(emplRole.salary), 0) as utilized_budget
       from department dept
-      left join role role on dept.id = role.department_id
-      left join employee empl on role.id = empl.role_id
+      left join
+      (
+        select empl.*, role.department_id, role.salary
+        from employee empl
+        inner join role role on empl.role_id = role.id
+      ) as emplRole on dept.id = emplRole.department_id
       group by dept.id
       order by dept.id`;
 

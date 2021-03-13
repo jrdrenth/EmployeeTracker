@@ -7,50 +7,50 @@ class PromptArgs {
     return [
       {
         name: name,
-        type: "list",
-        message: "What would you like to do?",
+        type: 'list',
+        message: 'What would you like to do?',
         choices: [
           {
-            name: "View All Employees",
+            name: 'View All Employees',
             value: Constants.ViewAllEmployees
           }, {
-            name: "View All Employees By Department",
+            name: 'View All Employees By Department',
             value: Constants.ViewEmployeesByDepartment
           }, {
-            name: "View All Employees By Manager",
+            name: 'View All Employees By Manager',
             value: Constants.ViewEmployeesByManager
           }, {
-            name: "Add Employee",
+            name: 'Add Employee',
             value: Constants.AddEmployee
           }, {
-            name: "Remove Employee",
+            name: 'Remove Employee',
             value: Constants.RemoveEmployee
           }, {
-            name: "Update Employee Role",
+            name: 'Update Employee Role',
             value: Constants.UpdateEmployeeRole
           }, {
-            name: "Update Employee Manager",
+            name: 'Update Employee Manager',
             value: Constants.UpdateEmployeeManager
           }, {
-            name: "View All Roles",
+            name: 'View All Roles',
             value: Constants.ViewRoles
           }, {
-            name: "Add Role",
+            name: 'Add Role',
             value: Constants.AddRole
           }, {
-            name: "Remove Role",
+            name: 'Remove Role',
             value: Constants.RemoveRole
           }, {
-            name: "View All Departments",
+            name: 'View All Departments',
             value: Constants.ViewDepartments
           }, {
-            name: "Add Department",
+            name: 'Add Department',
             value: Constants.AddDepartment
           }, {
-            name: "Remove Department",
-            value: Constants.removeDepartment
+            name: 'Remove Department',
+            value: Constants.RemoveDepartment
           }, {
-            name: "Quit",
+            name: 'Quit',
             value: Constants.Quit
           }
         ]
@@ -62,10 +62,12 @@ class PromptArgs {
     return [
       {
         name: firstName,
-        message: "What is the employee's first name?"
+        type: 'input',
+        message: 'What is the employee\'s first name?'
       }, {
         name: lastName,
-        message: "What is the employee's last name?"
+        type: 'input',
+        message: 'What is the employee\'s last name?'
       }
     ];
   }
@@ -74,8 +76,8 @@ class PromptArgs {
     return [
       {
         name: name,
-        type: "list",
-        message: "What is the employee's role?",
+        type: 'list',
+        message: 'What is the employee\'s role?',
         choices: roleNameValuePairs
       }
     ];
@@ -85,8 +87,8 @@ class PromptArgs {
     return [
       {
         name: name,
-        type: "list",
-        message: "Who is the employee's manager?",
+        type: 'list',
+        message: 'Who is the employee\'s manager?',
         choices: managerNameValuePairs
       }
     ];
@@ -107,69 +109,120 @@ class PromptArgs {
     return [
       {
         name: name,
-        type: "list",
-        message: "Which manager do you want to see direct reports for?",
+        type: 'list',
+        message: 'Which manager do you want to see direct reports for?',
         choices: managerNameValuePairs
       }
     ];
   }
 
-  static GetUpdateEmployeeRoleArgs() {
-    return [];
+  static GetUpdateEmployeeRoleArgs(name, employeeNameValuePairs) {
+    return [
+      {
+        name: name,
+        type: 'list',
+        message: 'Which employee\'s role do you want to update?',
+        choices: employeeNameValuePairs
+      }
+    ];
   }
 
-  static GetAssignEmployeeRoleArgs() {
-    return [];
+  static GetAssignEmployeeRoleArgs(name, roleNameValuePairs) {
+    return [
+      {
+        name: name,
+        type: 'list',
+        message: 'Which role do you want to assign the selected employee?',
+        choices: roleNameValuePairs
+      }
+    ];
   }
 
-  static GetUpdateEmployeeManagerArgs() {
-    return [];
+  static GetUpdateEmployeeManagerArgs(name, employeeNameValuePairs) {
+    return [
+      {
+        name: name,
+        type: 'list',
+        message: 'Which employee would you like assigned to a different manager?',
+        choices: employeeNameValuePairs
+      }
+    ];
   }
   
-  static GetAssignEmployeeManagerArgs() {
-    return [];
+  static GetAssignEmployeeManagerArgs(name, managerNameValuePairs) {
+    return [
+      {
+        name: name,
+        type: 'list',
+        message: 'Who do you want to set as manager for the selected employee?',
+        choices: managerNameValuePairs
+      }
+    ];
   }
 
-  static GetRemoveEmployeeArgs() {
-    return [];
+  static GetRemoveEmployeeArgs(name, employeeNameValuePairs) {
+    return [
+      {
+        name: name,
+        type: 'list',
+        message: 'Which employee do you want to remove?',
+        choices: employeeNameValuePairs
+      }
+    ];
   }
 
-  static GetNewRoleArgs (roleName, salaryName, departmentName, departments) {
+  static GetNewRoleArgs (roleName, salaryName, departmentName, departmentNameValuePairs) {
     return [
       {
         name: roleName,
-        message: "What is the name of the role?"
+        type: 'input',
+        message: 'What is the name of the role?'
       }, {
         name: salaryName,
-        message: "What is the salary of the role?"
+        type: 'input',
+        message: 'What is the salary of the role?'
       }, {
         name: departmentName,
-        type: "list",
-        message: "Which department does the role belong to?",
-        choices: departments
+        type: 'list',
+        message: 'Which department does the role belong to?',
+        choices: departmentNameValuePairs
       }
     ];
   }
 
-  static GetRemoveRoleArgs(roles) {
+  static GetRemoveRoleArgs(name, roleNameValuePairs) {
     return [
       {
-        name: "role",
-        type: "list",
-        message: "Which role do you want to remove? (Warning: This will also remove employees associated with the role)",
-        choices: roles
+        name: name,
+        type: 'list',
+        message: 'Which role do you want to remove? (Warning: This will also remove employees associated with the role)',
+        choices: roleNameValuePairs
       }
     ];
   }
 
-  static GetNewDepartmentArgs() {
-    return [];
+  static GetNewDepartmentArgs(name) {
+    return [
+      {
+        name: name,
+        type: 'input',
+        message: 'What is the name of the department?'
+      }
+    ];
   }
 
-  static GetRemoveDepartmentArgs() {
-    return [];
+  static GetRemoveDepartmentArgs(name, departmentNameValuePairs) {
+    return [
+      {
+        name: name,
+        type: 'list',
+        message: 'Which department would you like to remove? (Warning: This will also remove associated roles and employees)',
+        choices: departmentNameValuePairs
+      }
+    ];
   }
 
 }
+
 
 module.exports = PromptArgs;

@@ -12,7 +12,7 @@ class Constants {
   static RemoveRole = 'REMOVE_ROLE';
   static ViewDepartments = 'VIEW_DEPARTMENTS';
   static AddDepartment = 'ADD_DEPARTMENT';
-  static removeDepartment = 'REMOVE_DEPARTMENT';
+  static RemoveDepartment = 'REMOVE_DEPARTMENT';
   static Quit = 'QUIT';
 
 }
