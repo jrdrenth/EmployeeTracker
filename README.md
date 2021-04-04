@@ -33,6 +33,9 @@ npm i
 
 Run the command: `npm start`.  Navigate thru the menu to manage the company.
 
+Please find walkthrough demonstation of how to use this app at: [https://drive.google.com/file/d/1KBj5kNjm5_sMwIf9VwKOwm1lp5r6HTgv/view](https://drive.google.com/file/d/1KBj5kNjm5_sMwIf9VwKOwm1lp5r6HTgv/view).
+
+
 ![Employee Tracker](./assets/employee-tracker.gif)
 
 
